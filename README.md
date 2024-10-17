@@ -33,6 +33,7 @@ This project is licensed under the MIT License. See [`LICENSE`](https://chooseal
 ## Acknowledgments
 
 - The Odin Project for providing the curriculum and resources
+- The Flaticon for providing the icons
 
 ## Authors
 
