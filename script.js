@@ -63,6 +63,7 @@ const Game = (function () {
     return square;
   }
 
+  createGameboard();
 
   return {
     createGameboard,
@@ -70,5 +71,3 @@ const Game = (function () {
     didSymbolWin,
   };
 })();
-
-Game.createGameboard();
