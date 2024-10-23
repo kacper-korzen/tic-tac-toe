@@ -4,10 +4,12 @@ const Game = (function () {
                 'o', 'o', 'o',
                 'o', 'o', 'o'];
 
-  function createGameboard() {
+  const gameboardDiv = document.querySelector(".gameboard");
+
+  function createGameboardArray() {
     const gameboard = Array.from({ length: 9 }, (_, i) => 0);
 
-    return { gameboard };
+    return gameboard;
   }
 
   function didSymbolWin(symbol) {
@@ -47,6 +49,10 @@ const Game = (function () {
 
   function createPlayer(name, symbol) {
     return { name, symbol };
+  }
+
+  function createGameboard() {
+    return createGameboardArray().gameboard;
   }
 
   return {
