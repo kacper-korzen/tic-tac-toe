@@ -1,33 +1,42 @@
 const Game = (function () {
+  let gameboard = createGameboard();
+  gameboard = [ 'x', 'x', 'x',
+                'o', 'o', 'o',
+                'o', 'o', 'o'];
+
+  const playerX = createPlayer('X', 'x');
+  const playerO = createPlayer('O', 'o');  
+
   function createGameboard() {
     const gameboard = Array.from({ length: 9 }, (_, i) => 0);
 
     return { gameboard };
   }
 
+
   function didSymbolWin(symbol) {
     // 1, 5, 9
     // 3, 5, 7
     // 3 in row
     if (
-      gameboard[0] == symbol &&
-      gameboard[4] == symbol &&
-      gameboard[8] == symbol
+      gameboard[0] === symbol &&
+      gameboard[4] === symbol &&
+      gameboard[8] === symbol
     ) {
       return true;
     }
 
     if (
-      gameboard[2] == symbol &&
-      gameboard[4] == symbol &&
-      gameboard[6] == symbol
+      gameboard[2] === symbol &&
+      gameboard[4] === symbol &&
+      gameboard[6] === symbol
     ) {
       return true;
     }
 
     let len = 0;
     for (let val of gameboard) {
-      if (val == symbol) {
+      if (val === symbol) {
         len += 1;
         if (len == 3) {
           return true;
@@ -47,8 +56,10 @@ const Game = (function () {
   return {
     createGameboard,
     createPlayer,
-    didSymbolWin
+    didSymbolWin,
+    playerO,
+    playerX,
   };
 })();
 
-console.log(Game.createGameboard().checkGameState("="));
+console.log(Game.didSymbolWin(Game.playerO.symbol));
