@@ -88,6 +88,8 @@ body {
     min-height: 100dvh;
 }
 
+/* HEADER */
+
 header {
     grid-area: header;
 }
@@ -110,13 +112,27 @@ header img {
     gap: 1rem;
 }
 
+
+/* MAIN */
 main {
     grid-area: main;
+}
+
+main img {
+    width: var(--fs-700);
 }
 
 .game {
     display: grid;
     grid-template-columns: 1fr 2fr  1fr;
+}
+
+.player {
+    display: grid;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    align-content: start;
+    justify-content: center;
 }
 
 .gameboard {
