@@ -114,6 +114,11 @@ main {
     grid-area: main;
 }
 
+.game {
+    display: grid;
+    grid-template-columns: 1fr 2fr  1fr;
+}
+
 footer  {
     grid-area: footer;
     font-size: var(--fs-300);
