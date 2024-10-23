@@ -4,15 +4,11 @@ const Game = (function () {
                 'o', 'o', 'o',
                 'o', 'o', 'o'];
 
-  const playerX = createPlayer('X', 'x');
-  const playerO = createPlayer('O', 'o');  
-
   function createGameboard() {
     const gameboard = Array.from({ length: 9 }, (_, i) => 0);
 
     return { gameboard };
   }
-
 
   function didSymbolWin(symbol) {
     // 1, 5, 9
@@ -57,9 +53,5 @@ const Game = (function () {
     createGameboard,
     createPlayer,
     didSymbolWin,
-    playerO,
-    playerX,
   };
 })();
-
-console.log(Game.didSymbolWin(Game.playerO.symbol));
