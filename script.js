@@ -1,5 +1,5 @@
 const Game = (function () {
-  let gameboard = createGameboard();
+  let gameboard = createGameboardArray();
   gameboard = [ 'x', 'x', 'x',
                 'o', 'o', 'o',
                 'o', 'o', 'o'];
@@ -51,9 +51,18 @@ const Game = (function () {
     return { name, symbol };
   }
 
-  function createGameboard() {
-    return createGameboardArray().gameboard;
+  function createOneSquare() {
+    const square = document.createElement("div");
+    square.classList.add("square");
+    return square;
   }
+  function createGameboard() {
+    for( let i = 0; i < 9; i++) {
+      gameboardDiv.appendChild(createOneSquare());
+    }
+    return square;
+  }
+
 
   return {
     createGameboard,
@@ -61,3 +70,5 @@ const Game = (function () {
     didSymbolWin,
   };
 })();
+
+Game.createGameboard();
