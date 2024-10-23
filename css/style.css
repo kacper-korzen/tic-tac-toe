@@ -65,3 +65,12 @@ a {
 body {
     font-size: var(--fs-100);
 }
+
+.wrapper {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    min-height: 100dvh;
+    background-color: var(--clr-background);
+}
+
