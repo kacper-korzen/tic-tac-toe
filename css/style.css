@@ -66,6 +66,14 @@ body {
     font-size: var(--fs-100);
 }
 
+.btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: var(--fs-800);
+}
+
+
 .wrapper {  
     display: grid;
     place-content: center;
@@ -82,14 +90,24 @@ body {
 
 header {
     grid-area: header;
-    display: grid;
-    gap:1rem;
-    place-content: center;
-    grid-auto-flow: column;
 }
 
 header img {
     width: var(--fs-600);
+}
+
+.hero {
+    display: grid;
+    place-content: center;
+    grid-template-columns: auto;
+    gap: 0.5rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+.logo {
+    display: flex;
+    gap: 1rem;
 }
 
 main {
