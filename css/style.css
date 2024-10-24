@@ -8,6 +8,7 @@
     --clr-secondary: hsl(165, 71%, 70%);
     --clr-accent: hsl(196, 72%, 61%);
 
+    --clr-neutral-100: hsl(0, 0%, 100%);
     --clr-neutral-200: hsl(0, 0%, 90%);
     --clr-neutral-300: hsl(0, 11%, 84%);
     --clr-neutral-500: hsl(0, 0%, 60%);
@@ -68,12 +69,33 @@ body {
 }
 
 .btn {
-    background-color: transparent;
+    background-color: var(--clr-neutral-100);
     border: none;
+    border-radius: 1rem;
     cursor: pointer;
     width: var(--fs-800);
+    height: var(--fs-800);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
 }
 
+.hidden {
+    display: none;
+}
+
+.btn:hover,
+.btn:focus {
+    display: none;
+}
+/* fix jumping of the element */
+.btn:hover + .hidden,
+.btn:focus + .hidden {
+    display: inline-flex;
+    cursor: pointer;
+    transition: all 1.5s 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
 .wrapper {  
     display: grid;
@@ -146,7 +168,7 @@ main img {
 }
 
 .player input {
-    color: rgba(0,0,0,.87);
+    color: rgba(var(--clr-text),.87);
     border-bottom-color: rgba(var(--clr-text),.42);
     font-size: var(--fs-200);
     font-weight: 400;
@@ -162,7 +184,7 @@ main img {
     border-bottom: 1px solid;
     border-radius: 4px 4px 0 0;
     background: rgb(245, 245, 245);
-    height: 50px;
+    height: 3rem;
 }  
 
 .player input:hover{
