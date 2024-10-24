@@ -85,16 +85,16 @@ body {
     display: none;
 }
 
-.btn:hover,
-.btn:focus {
+.btn:hover .static,
+.btn:focus .static {
     display: none;
 }
-/* fix jumping of the element */
-.btn:hover + .hidden,
-.btn:focus + .hidden {
+
+.btn:hover .hidden,
+.btn:focus .hidden {
     display: inline-flex;
     cursor: pointer;
-    transition: all 1.5s 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 1s ease;
 }
 
 .wrapper {  
