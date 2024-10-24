@@ -35,6 +35,7 @@ This project is licensed under the MIT License. See [`LICENSE`](https://chooseal
 - The Odin Project for providing the curriculum and resources
 - The Flaticon for providing the icons
 - The Patterninja for providing background pattern
+- [@mooniDev](https://github.com/mooniiDev) for inspiration
 
 ## Authors
 
