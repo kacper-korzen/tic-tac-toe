@@ -86,6 +86,9 @@ body {
         "footer";
     min-height: 100vh;
     min-height: 100dvh;
+    background-image: url("../img/start-pattern.png");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 /* HEADER */
