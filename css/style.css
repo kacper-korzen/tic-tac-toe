@@ -120,6 +120,7 @@ header {
 
 header img {
     width: var(--fs-600);
+    height: var(--fs-600);
 }
 
 .hero {
@@ -134,6 +135,10 @@ header img {
 .logo {
     display: flex;
     gap: 1rem;
+}
+
+.hero h4 {
+    text-shadow: 2px 2px 4px var(--clr-secondary);
 }
 
 
