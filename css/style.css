@@ -218,8 +218,14 @@ main img {
     border-radius: 0.5rem;
     width: var(--fs-800);
     height: var(--fs-800);
-    align-self: center;
-    justify-self: center;
+    display: grid;
+    
+}
+
+.square img {
+    width: var(--fs-700);
+    height: var(--fs-700);
+    margin: auto;
 }
 
 footer  {
