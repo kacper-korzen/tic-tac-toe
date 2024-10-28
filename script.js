@@ -1,10 +1,12 @@
 const Game = (function () {
+  // State elements
   let gameboard = createGameboardArray();
-  gameboard = [ 'x', 'x', 'x',
-                'o', 'o', 'o',
-                'o', 'o', 'o'];
+  let playingSymbol = 'b';
 
+  // DOM elements
   const gameboardDiv = document.querySelector(".gameboard");
+  let bambooImg = "<img src='img/bamboo.png' alt='bamboo icon'>";
+  let meatImg = "<img src='img/meat.png' alt='meat icon'>";
 
   function createGameboardArray() {
     const gameboard = Array.from({ length: 9 }, (_, i) => 0);
@@ -54,13 +56,28 @@ const Game = (function () {
   function createOneSquare() {
     const square = document.createElement("div");
     square.classList.add("square");
+    
+    square.addEventListener("click", () => {
+      if (playingSymbol === 'b' && gameboard[square.id] === 0) {
+        gameboard[square.id] = 'm';
+        square.innerHTML = meatImg;
+        playingSymbol = 'm';
+      } else if (playingSymbol === 'm' && gameboard[square.id] === 0) {
+        gameboard[square.id] = 'b';
+        square.innerHTML = bambooImg;
+        playingSymbol = 'b';
+      }
+    });
+
+
     return square;
   }
   function createGameboard() {
     for( let i = 0; i < 9; i++) {
-      gameboardDiv.appendChild(createOneSquare());
+      let square = createOneSquare();
+      square.id = i;
+      gameboardDiv.appendChild(square);
     }
-    return square;
   }
 
   createGameboard();
