@@ -2,16 +2,34 @@ const Game = (function () {
   // State elements
   let gameboard = createGameboardArray();
   let playingSymbol = 'b';
+  let winner = '';
 
   // DOM elements
   const gameboardDiv = document.querySelector(".gameboard");
+  const wrapper = document.querySelector(".wrapper");
+
+  // Images
   let bambooImg = "<img src='img/bamboo.png' alt='bamboo icon'>";
   let meatImg = "<img src='img/meat.png' alt='meat icon'>";
+  const backgrounds = ['img/start-pattern.png', 'img/cats-won-pattern.png', 'img/bears-won-pattern.png'];
 
   function createGameboardArray() {
     const gameboard = Array.from({ length: 9 }, (_, i) => 0);
 
     return gameboard;
+  }
+
+  function changeBackground(newImage) {
+    wrapper.style.backgroundImage = `url(${newImage})`;
+  }
+  function checkIfFull() {
+    if (gameboard.includes(0)) {
+      console.log("not full");
+      return false;
+    } else {
+      console.log("full");
+      return true;
+    }
   }
 
   function didSymbolWin(symbol) {
@@ -23,6 +41,7 @@ const Game = (function () {
       gameboard[4] === symbol &&
       gameboard[8] === symbol
     ) {
+      winner = symbol;
       return true;
     }
 
@@ -31,6 +50,7 @@ const Game = (function () {
       gameboard[4] === symbol &&
       gameboard[6] === symbol
     ) {
+      winner = symbol;
       return true;
     }
 
@@ -39,6 +59,7 @@ const Game = (function () {
       if (val === symbol) {
         len += 1;
         if (len == 3) {
+          winner = symbol;
           return true;
         }
       } else {
@@ -62,13 +83,16 @@ const Game = (function () {
         gameboard[square.id] = 'm';
         square.innerHTML = meatImg;
         playingSymbol = 'm';
+        didSymbolWin('m');
+        checkIfFull();
       } else if (playingSymbol === 'm' && gameboard[square.id] === 0) {
         gameboard[square.id] = 'b';
         square.innerHTML = bambooImg;
         playingSymbol = 'b';
+        checkIfFull();
+        didSymbolWin('b');
       }
     });
-
 
     return square;
   }
@@ -87,4 +111,5 @@ const Game = (function () {
     createPlayer,
     didSymbolWin,
   };
+
 })();
