@@ -5,8 +5,9 @@ const Game = (function () {
   let winner = '';
 
   // DOM elements
-  const gameboardDiv = document.querySelector(".gameboard");
+  const startGameSection = document.querySelector(".startGame");
   const wrapper = document.querySelector(".wrapper");
+  const startBtn = document.querySelector("#startGame");
 
   // Images
   let bambooImg = "<img src='img/bamboo.png' alt='bamboo icon'>";
@@ -17,11 +18,9 @@ const Game = (function () {
     if (winner === 'm') {
       changeBackground(backgrounds[1]);
       console.log("cats");
-      deleteClickEvent();
     } else if (winner === 'b') {
       changeBackground(backgrounds[2]);
       console.log("bears");
-      deleteClickEvent();
     } else if (checkIfFull()) {
       console.log("draw");
     }
@@ -122,11 +121,23 @@ const Game = (function () {
     for( let i = 0; i < 9; i++) {
       let square = createOneSquare();
       square.id = i;
-      gameboardDiv.appendChild(square);
+      startGameSection.appendChild(square);
     }
   }
 
-  createGameboard();
+  function startNewGame() {
+    gameboard = createGameboardArray();
+    
+    startBtn.addEventListener("click", () => {
+      startGameSection.classList.remove("startGame");
+      startGameSection.innerHTML = "";
+      startGameSection.classList.add("gameboard");
+      createGameboard();
+    });
+
+  }
+
+  startNewGame();
 
   return {
     createGameboard,
