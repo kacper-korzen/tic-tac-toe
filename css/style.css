@@ -81,6 +81,10 @@ body {
     margin-right: 1rem;
 }
 
+.btn-check {
+    display: none;        
+}
+
 .hidden {
     display: none;
 }
@@ -95,6 +99,10 @@ body {
     display: inline-flex;
     cursor: pointer;
     transition: all 1s ease;
+}
+
+.btn-check:checked + .btn {
+    border: 3px solid var(--clr-success);
 }
 
 .wrapper {  
