@@ -201,6 +201,31 @@ main img {
     border-color: var(--clr-accent);
 }
 
+.startGame {
+    display: grid;
+    gap: 1rem;
+    padding: 1rem;
+    margin-top: 5rem;
+    align-content:  center;
+    justify-content: center;
+    height: fit-content;
+}
+
+.startGame button {
+    color: rgba(var(--clr-text),.87);
+    background-image: linear-gradient(to right, var(--clr-primary), var(--clr-secondary));
+    font-size: var(--fs-400);
+    font-weight: 500;
+    width: 100%;
+    box-shadow: 2px 2px 2cap var(--clr-neutral-100);
+    filter: brightness(1.1);
+    transition: filter 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.startGame button:hover {
+    filter: none;
+}
+
 
 .gameboard {
     display: grid;
