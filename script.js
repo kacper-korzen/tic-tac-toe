@@ -4,10 +4,17 @@ const Game = (function () {
   let playingSymbol = 'b';
   let winner = '';
 
+  const player1 = createPlayer("", "");
+  const player2 = createPlayer("", "");
+  
+
   // DOM elements
   const startGameSection = document.querySelector(".startGame");
   const wrapper = document.querySelector(".wrapper");
   const startBtn = document.querySelector("#startGame");
+  const players = document.querySelectorAll(".player");
+  const charactersTitle = document.querySelectorAll(".characters > h4");
+  const characterAvatars = document.querySelectorAll(".characters > div");
 
   // Images
   let bambooImg = "<img src='img/bamboo.png' alt='bamboo icon'>";
@@ -91,6 +98,30 @@ const Game = (function () {
     return { name, symbol };
   }
 
+  function getPlayerInfo() {
+    player1.name = players[0].querySelector("input").value;
+    player2.name = players[1].querySelector("input").value;
+    console.log(player1.name, player2.name);
+    disablePlayerInput();
+  }
+
+  function disableAvatarSelection() {
+    charactersTitle[0].textContent = "Your character";
+    charactersTitle[1].textContent = "Your character";
+
+    for (let avatar of characterAvatars) {
+      if (!avatar.querySelector("input").checked) {
+        console.log(avatar);
+        avatar.remove();    
+      } 
+    }
+  }
+
+  function disablePlayerInput() {
+    players[0].querySelector("input").disabled = true;
+    players[1].querySelector("input").disabled = true;
+    disableAvatarSelection();
+  }
   
 
   function createOneSquare() {
@@ -133,6 +164,7 @@ const Game = (function () {
       startGameSection.innerHTML = "";
       startGameSection.classList.add("gameboard");
       createGameboard();
+      getPlayerInfo();
     });
 
   }
