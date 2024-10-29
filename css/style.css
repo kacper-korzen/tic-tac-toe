@@ -209,6 +209,16 @@ main img {
     border-color: var(--clr-accent);
 }
 
+.characters {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: auto 1fr;
+}
+
+.characters h4 {
+    grid-column: span 2;
+}
+
 .startGame {
     display: grid;
     gap: 1rem;
