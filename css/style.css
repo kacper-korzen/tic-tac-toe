@@ -244,6 +244,13 @@ main img {
     filter: none;
 }
 
+.winingMessage {
+    display: grid;
+    gap: 1rem;
+    padding: 1rem;
+    align-content:  center;
+    justify-content: center;
+}
 
 .gameboard {
     display: grid;
