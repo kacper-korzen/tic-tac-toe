@@ -15,6 +15,7 @@ const Game = (function () {
   const players = document.querySelectorAll(".player");
   const charactersTitle = document.querySelectorAll(".characters > h4");
   const characterAvatars = document.querySelectorAll(".characters > div");
+  const winComunicat = document.querySelector(".winingMessage > h2");
 
   // Images
   let bambooImg = "<img src='img/bamboo.png' alt='bamboo icon'>";
@@ -22,16 +23,22 @@ const Game = (function () {
   const backgrounds = ['img/start-pattern.png', 'img/cats-won-pattern.png', 'img/bears-won-pattern.png'];
 
   function checkGameState() {
+    let message = '';
     if (winner === 'm') {
       changeBackground(backgrounds[1]);
-      console.log("cats");
+      message = `${player1.name} won!`;
+      createWinningComunicat(message);
     } else if (winner === 'b') {
       changeBackground(backgrounds[2]);
-      console.log("bears");
+      message = `${player2.name} won!`;
+      createWinningComunicat(message);
     } else if (checkIfFull()) {
-      console.log("draw");
+      winner = 'd';
+      message = "It's a draw!";
+      createWinningComunicat(message);
     }
   }
+
   function createGameboardArray() {
     const gameboard = Array.from({ length: 9 }, (_, i) => 0);
 
@@ -123,6 +130,9 @@ const Game = (function () {
     disableAvatarSelection();
   }
   
+  function createWinningComunicat(comunicat) {
+    winComunicat.textContent = comunicat;    
+  }
 
   function createOneSquare() {
     const square = document.createElement("div");
