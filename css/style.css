@@ -82,6 +82,12 @@ body {
     margin-right: 1rem;
 }
 
+.btn-wide {
+    font-size: var(--fs-300);
+    color: var(--clr-neutral-700);
+    width: 100%;
+}
+
 .btn-check {
     display: none;        
 }
