@@ -15,7 +15,8 @@ const Game = (function () {
   const players = document.querySelectorAll(".player");
   const charactersTitle = document.querySelectorAll(".characters > h4");
   const characterAvatars = document.querySelectorAll(".characters > div");
-  const winComunicat = document.querySelector(".winingMessage > h2");
+  const winMessage = document.querySelector(".winingMessage ");
+  const winComunicat = winMessage.querySelector("h2");
 
   // Images
   let bambooImg = "<img src='img/bamboo.png' alt='bamboo icon'>";
