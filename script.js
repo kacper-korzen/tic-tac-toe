@@ -27,16 +27,18 @@ const Game = (function () {
     if (winner === 'm') {
       changeBackground(backgrounds[1]);
       message = `${player1.name} won!`;
-      createWinningComunicat(message);
+      refreshButton();
     } else if (winner === 'b') {
       changeBackground(backgrounds[2]);
       message = `${player2.name} won!`;
-      createWinningComunicat(message);
+      refreshButton();
     } else if (checkIfFull()) {
       winner = 'd';
       message = "It's a draw!";
-      createWinningComunicat(message);
+      refreshButton();
     }
+    
+    createWinningComunicat(message);
   }
 
   function createGameboardArray() {
