@@ -130,6 +130,18 @@ const Game = (function () {
     disableAvatarSelection();
   }
   
+  function refreshButton() {
+    const refreshButton = document.createElement('button');
+    refreshButton.className = 'btn btn-wide';
+    refreshButton.textContent = "Play again";
+
+    refreshButton.addEventListener('click', () => {
+      location.reload();
+    });
+
+    winMessage.appendChild(refreshButton);
+  }
+
   function createWinningComunicat(comunicat) {
     winComunicat.textContent = comunicat;    
   }
