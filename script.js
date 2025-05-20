@@ -62,47 +62,42 @@ const Game = (function () {
   }
 
   function didSymbolWin(symbol) {
-    // 1, 5, 9
-    // 3, 5, 7
-    // 3 in row
-    if (
-      gameboard[0] === symbol &&
-      gameboard[4] === symbol &&
-      gameboard[8] === symbol
-    ) {
-      winner = symbol;
-      
-    }
-
-    if (
-      gameboard[2] === symbol &&
-      gameboard[4] === symbol &&
-      gameboard[6] === symbol
-    ) {
-      winner = symbol;
-    }
-
-    let len = 0;
-    for (let val of gameboard) {
-      if (val === symbol) {
-        len += 1;
-        if (len == 3) {
-          winner = symbol;
-        }
-      } else {
-        len = 0;
-      }
-    }
-
-    for (let col = 0; col < 3; col++) {
-      if (gameboard[col] === symbol && 
-          gameboard[col + 3] === symbol && 
-          gameboard[col + 6] === symbol) {
+    // Sprawdzenie rzędów
+    for (let row = 0; row < 3; row++) {
+      if (
+        gameboard[row * 3] === symbol &&
+        gameboard[row * 3 + 1] === symbol &&
+        gameboard[row * 3 + 2] === symbol
+      ) {
         winner = symbol;
+        return true;
       }
+    }
+
+    // Sprawdzenie kolumn
+    for (let col = 0; col < 3; col++) {
+      if (
+        gameboard[col] === symbol &&
+        gameboard[col + 3] === symbol &&
+        gameboard[col + 6] === symbol
+      ) {
+        winner = symbol;
+        return true;
+      }
+    }
+
+    // Sprawdzenie przekątnych
+    if (
+      (gameboard[0] === symbol && gameboard[4] === symbol && gameboard[8] === symbol) ||
+      (gameboard[2] === symbol && gameboard[4] === symbol && gameboard[6] === symbol)
+    ) {
+      winner = symbol;
+      return true;
+    }
+
+    return false;
   }
 
-  }
 
   function createPlayer(name, symbol) {
     return { name, symbol };
