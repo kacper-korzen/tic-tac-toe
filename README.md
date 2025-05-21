@@ -39,4 +39,4 @@ This project is licensed under the MIT License. See [`LICENSE`](https://chooseal
 
 ## Authors
 
-- [@radix-ratio](https://www.github.com/radix-ratio)
+- [@Kacper K](https://www.github.com/kacper-korzen)
