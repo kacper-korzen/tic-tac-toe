@@ -15,7 +15,7 @@ This project is a basic implementation of the classic Tic Tac Toe game, allowing
 * Handle invalid moves and game over conditions
 ## Demo
 
-[**Live Demo**](https://radix-ratio.github.io/tic-tac-toe) | [**Project Specs**](https://www.theodinproject.com/lessons/node-path-javascript-tic-tac-toe)
+[**Live Demo**](https://kacper-korzen.github.io/tic-tac-toe) | [**Project Specs**](https://www.theodinproject.com/lessons/node-path-javascript-tic-tac-toe)
 
 ## Screenshots
 
